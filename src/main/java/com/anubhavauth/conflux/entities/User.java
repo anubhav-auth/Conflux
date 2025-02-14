@@ -17,6 +17,7 @@ import java.util.UUID;
 @Document(collection = "users")
 public class User {
     private UUID _id;
+    private String userName;
     private UUID organisationId;
     private String firstName;
     private String lastName;
