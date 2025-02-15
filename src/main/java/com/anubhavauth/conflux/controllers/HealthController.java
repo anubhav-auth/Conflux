@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class HealthController {
 
     @GetMapping("/health")
-    public void healthCheck() {
-        // Health check endpoint for system monitoring
+    public String healthCheck() {
+        return "all ok";
     }
 
     @GetMapping("/metrics")

@@ -1,6 +1,6 @@
 package com.anubhavauth.conflux.services;
 
-import com.anubhavauth.conflux.entities.User;
+import com.anubhavauth.conflux.entities.persistentEntities.User;
 import com.anubhavauth.conflux.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

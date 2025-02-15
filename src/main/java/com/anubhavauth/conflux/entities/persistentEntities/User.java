@@ -1,11 +1,8 @@
-package com.anubhavauth.conflux.entities;
+package com.anubhavauth.conflux.entities.persistentEntities;
 
 import com.anubhavauth.conflux.entities.utils.Role;
 import com.anubhavauth.conflux.entities.utils.Status;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;

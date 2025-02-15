@@ -1,4 +1,4 @@
-package com.anubhavauth.conflux.entities;
+package com.anubhavauth.conflux.entities.persistentEntities;
 
 import com.anubhavauth.conflux.entities.utils.Type;
 import lombok.AllArgsConstructor;

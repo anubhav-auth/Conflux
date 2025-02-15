@@ -1,5 +1,6 @@
-package com.anubhavauth.conflux.entities;
+package com.anubhavauth.conflux.entities.dtos;
 
+import com.anubhavauth.conflux.entities.utils.Status;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,13 +13,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Document(collection = "notificationSetting")
-public class NotificationSetting {
-    private UUID _id;
-    private UUID organisationId;
-    private String provider;
-    private String apiKey;
-    private String senderEmail;
+public class OrganisationDTO {
+    private String name;
     private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
 }

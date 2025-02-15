@@ -1,4 +1,4 @@
-package com.anubhavauth.conflux.entities;
+package com.anubhavauth.conflux.entities.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,14 +13,11 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Document(collection = "teams")
-public class Team {
-    private UUID _id;
+public class TeamDTO {
     private UUID organisationId;
     private UUID eventId;
     private String name;
     private String description;
     private List<UUID> members;
     private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
 }

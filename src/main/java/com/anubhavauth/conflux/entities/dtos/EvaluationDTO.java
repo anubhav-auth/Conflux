@@ -1,4 +1,4 @@
-package com.anubhavauth.conflux.entities;
+package com.anubhavauth.conflux.entities.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,14 +13,10 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Document(collection = "evaluation")
-public class Evaluation {
-    private UUID _id;
+public class EvaluationDTO {
     private UUID organisationId;
     private UUID eventId;
     private UUID submissionId;
     private UUID judgeId;
-    private Integer score;
-    private String comments;
     private LocalDateTime evaluatedAt;
 }

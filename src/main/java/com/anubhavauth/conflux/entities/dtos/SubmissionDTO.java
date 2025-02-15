@@ -1,4 +1,4 @@
-package com.anubhavauth.conflux.entities;
+package com.anubhavauth.conflux.entities.dtos;
 
 import com.anubhavauth.conflux.entities.utils.Status;
 import lombok.AllArgsConstructor;
@@ -9,19 +9,16 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Document(collection = "orgs")
-public class Organisation {
-    private UUID _id;
-    private String name;
-    private String description;
-    private String contactEmail;
-    private String contactPhone;
-    private String address;
+public class SubmissionDTO {
+    private UUID organisationId;
+    private UUID eventId;
+    private UUID submittedBy;
+    private LocalDateTime submissionDate;
     private Status status;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
 }
+

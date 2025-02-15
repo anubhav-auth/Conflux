@@ -1,8 +1,6 @@
-package com.anubhavauth.conflux.entities;
+package com.anubhavauth.conflux.entities.persistentEntities;
 
 import com.anubhavauth.conflux.entities.utils.Status;
-import com.anubhavauth.conflux.entities.utils.Type;
-import com.sun.jdi.PrimitiveValue;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,13 +13,15 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Document(collection = "notificationLogs")
-public class NotificationLog {
+@Document(collection = "registrations")
+public class Registration {
     private UUID _id;
     private UUID organisationId;
     private UUID eventId;
-    private Type type;
+    private UUID userId;
+    private UUID teamId;
+    private LocalDateTime registrationDate;
     private Status status;
-    private LocalDateTime sentAt;
-    private String errorMessage;
+    private String additionalInfo;
 }
+

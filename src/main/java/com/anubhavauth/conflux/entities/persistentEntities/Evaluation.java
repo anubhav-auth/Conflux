@@ -1,6 +1,5 @@
-package com.anubhavauth.conflux.entities;
+package com.anubhavauth.conflux.entities.persistentEntities;
 
-import com.anubhavauth.conflux.entities.utils.Status;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,16 +13,14 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Document(collection = "submissions")
-public class Submission {
+@Document(collection = "evaluation")
+public class Evaluation {
     private UUID _id;
     private UUID organisationId;
     private UUID eventId;
-    private UUID submittedBy;
-    private String projectLink;
-    private String fileUrl;
-    private LocalDateTime submissionDate;
-    private Status status;
+    private UUID submissionId;
+    private UUID judgeId;
+    private Integer score;
     private String comments;
+    private LocalDateTime evaluatedAt;
 }
-
