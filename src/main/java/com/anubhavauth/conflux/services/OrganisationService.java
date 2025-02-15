@@ -16,7 +16,7 @@ import java.util.UUID;
 @Service
 public class OrganisationService {
 
-    private OrganisationRepo organisationRepo;
+    private final OrganisationRepo organisationRepo;
 
     @Autowired
     OrganisationService(OrganisationRepo organisationRepo) {
