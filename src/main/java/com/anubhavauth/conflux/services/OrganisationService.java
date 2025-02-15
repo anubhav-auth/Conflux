@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -21,6 +23,10 @@ public class OrganisationService {
         this.organisationRepo = organisationRepo;
     }
 
+    @Transactional
+    public List<Organisation> getAllOrg() {
+        return organisationRepo.findAll();
+    }
 
     @Transactional
     public OrganisationDTO createOrg(Organisation organisation) {
@@ -41,7 +47,41 @@ public class OrganisationService {
         }
         return OrganisationDTO.builder()
                 .name(organisation.getName())
-                .createdAt(organisation.getCreatedAt())
                 .build();
+    }
+
+    @Transactional
+    public Organisation getOrgById(String id) {
+        Optional<Organisation> byId = organisationRepo.findById(UUID.fromString(id));
+        if (byId.isPresent()) return byId.get();
+        else throw new RuntimeException("No organisation with that id present");
+    }
+
+    @Transactional
+    public OrganisationDTO updateOrgById(String id, OrganisationDTO organisationDTO){
+        Optional<Organisation> byId = organisationRepo.findById(UUID.fromString(id));
+
+        if (byId.isPresent()){
+            Organisation organisation = byId.get();
+            organisation.setName(organisationDTO.getName());
+            organisation.setDescription(organisationDTO.getDescription());
+            organisation.setContactEmail(organisationDTO.getContactEmail());
+            organisation.setContactPhone(organisationDTO.getContactPhone());
+            organisation.setAddress(organisationDTO.getAddress());
+            organisationRepo.save(organisation);
+            return organisationDTO;
+        }
+        else throw new RuntimeException("Organisation doesnt exist");
+    }
+
+    @Transactional
+    public String deleteOrgById(String id){
+        Optional<Organisation> byId = organisationRepo.findById(UUID.fromString(id));
+
+        if (byId.isPresent()){
+            organisationRepo.deleteById(UUID.fromString(id));
+            return byId.get().getName();
+        }
+        else throw new RuntimeException("Organisation doesnt exist");
     }
 }

@@ -1,7 +1,7 @@
 spring:
   data:
     mongodb:
-      uri: "mongodb+srv://unholy:15Bhzxc778%40@cluster0.6gtjz.mongodb.net"
+      uri: ${MONGO_URI}
       database: "conflux"
       auto-index-creation: true
   profiles:
