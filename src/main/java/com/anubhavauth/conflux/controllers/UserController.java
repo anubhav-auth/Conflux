@@ -1,10 +1,22 @@
 package com.anubhavauth.conflux.controllers;
 
+import com.anubhavauth.conflux.entities.dtos.UserDTO;
+import com.anubhavauth.conflux.entities.persistentEntities.User;
+import com.anubhavauth.conflux.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/organizations/{orgId}/users")
 public class UserController {
+
+    UserService userService;
+
+    @Autowired
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping
     public void listUsers(@PathVariable String orgId) {
@@ -17,8 +29,13 @@ public class UserController {
     }
 
     @PostMapping
-    public void createUser(@PathVariable String orgId) {
-        // Create/add a new user (by an organization admin)
+    public ResponseEntity<UserDTO> createUser(@PathVariable String orgId, @RequestBody User user) {
+        try {
+            UserDTO user1 = userService.createUser(user);
+            return ResponseEntity.ok(user1);
+        } catch (Exception e) {
+            throw new RuntimeException("User already exists");
+        }
     }
 
     @PutMapping("/{userId}")

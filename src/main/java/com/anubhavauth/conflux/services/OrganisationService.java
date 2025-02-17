@@ -68,6 +68,7 @@ public class OrganisationService {
             organisation.setContactEmail(organisationDTO.getContactEmail());
             organisation.setContactPhone(organisationDTO.getContactPhone());
             organisation.setAddress(organisationDTO.getAddress());
+            organisation.setUpdatedAt(LocalDateTime.now());
             organisationRepo.save(organisation);
             return organisationDTO;
         }
@@ -75,12 +76,11 @@ public class OrganisationService {
     }
 
     @Transactional
-    public String deleteOrgById(String id){
+    public void deleteOrgById(String id){
         Optional<Organisation> byId = organisationRepo.findById(UUID.fromString(id));
 
         if (byId.isPresent()){
             organisationRepo.deleteById(UUID.fromString(id));
-            return byId.get().getName();
         }
         else throw new RuntimeException("Organisation doesnt exist");
     }
