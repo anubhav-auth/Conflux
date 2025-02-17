@@ -4,9 +4,9 @@ import com.anubhavauth.conflux.entities.utils.Role;
 import com.anubhavauth.conflux.entities.utils.Status;
 import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 import java.time.LocalDateTime;
 import java.util.UUID;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,8 +14,8 @@ import java.util.UUID;
 @Document(collection = "users")
 public class User {
     private UUID _id;
-    private String userName;
     private UUID organisationId;
+    private String userName;
     private String firstName;
     private String lastName;
     private String email;
@@ -26,3 +26,4 @@ public class User {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }
+

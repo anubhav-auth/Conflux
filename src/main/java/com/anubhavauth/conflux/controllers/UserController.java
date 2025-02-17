@@ -38,6 +38,8 @@ public class UserController {
         }
     }
 
+    
+
     @PutMapping("/{userId}")
     public void updateUser(@PathVariable String orgId, @PathVariable String userId) {
         // Update user information (roles, profile details, etc.)
