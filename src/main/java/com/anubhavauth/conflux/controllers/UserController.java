@@ -31,7 +31,7 @@ public class UserController {
     @PostMapping
     public ResponseEntity<UserDTO> createUser(@PathVariable String orgId, @RequestBody User user) {
         try {
-            UserDTO user1 = userService.createUser(user);
+            UserDTO user1 = userService.createUser(user, orgId);
             return ResponseEntity.ok(user1);
         } catch (Exception e) {
             throw new RuntimeException("User already exists");
